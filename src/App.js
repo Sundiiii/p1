@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import React, { useState ,useMemo,useEffect} from 'react'
+import React, { useState } from 'react'
 import axios from 'axios';
 //import Search1 from './search';
 function App() {
@@ -8,7 +8,7 @@ function App() {
   const [search,setsearch]=useState("");
   const  apiKey= "840de593b7028de6e424162454790fe5";
   //const uri= `https://api.openweathermap.org/data/2.5/weather?q=[CITY_NAME]&units=metric&appid=[840de593b7028de6e424162454790fe5]`
-  const data1=  axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${search}&units=metric&appid=${apiKey}`)
+  const data1=  axios.get(`https://api.openweathermap.org/data/2.5/weather?q=[${search}]&units=metric&appid=[${apiKey}]`)
     .then((response) => {
       if (response.data) {
       console.log(response.data);
@@ -23,7 +23,7 @@ function App() {
     .catch((error) => {
       console.log(error.message);   
     });
-    return data1;
+    
    
     const handleClick = ()=>{
       let popup = document.querySelector('.popup-message') ;
